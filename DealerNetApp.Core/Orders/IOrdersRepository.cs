@@ -13,6 +13,7 @@ namespace DealerNetApp.Core.Orders
         MovieOrder AddMovie(int orderId, int movieId);
         MovieOrder RemoveMovie(int orderId, int movieId);
         MovieOrder UpdateOrder(MovieOrder order);
-
+        MovieOrder GetOrderDetails(int id);
+        MovieOrder CreateOrder();
     }
 }

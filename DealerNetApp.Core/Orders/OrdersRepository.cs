@@ -30,7 +30,7 @@ namespace DealerNetApp.Core.Orders
             return orderNum;
         }
 
-        private MovieOrder CreateOrder()
+        public MovieOrder CreateOrder()
         {
             string orderNum = GenerateOrderNum();
 
@@ -110,5 +110,12 @@ namespace DealerNetApp.Core.Orders
             return model;
         }
 
+        public MovieOrder GetOrderDetails(int id)
+        {
+            MovieOrder order = db.MovieOrders.Find(id);
+            order.OrderDetails = db.OrderDetails.Where(o =>
+                o.MovieOrderId == id).ToList();
+            return order;
+        }
     }
 }
