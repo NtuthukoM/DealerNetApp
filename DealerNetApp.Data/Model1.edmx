@@ -40,6 +40,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MovieOrderId" Type="int" Nullable="false" />
           <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -220,6 +221,7 @@
           <Property Name="MovieId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Movie" Relationship="DealerNetDbModel.FK__OrderDeta__Movie__22AA2996" FromRole="OrderDetail" ToRole="Movie" />
           <NavigationProperty Name="MovieOrder" Relationship="DealerNetDbModel.FK__OrderDeta__Movie__21B6055D" FromRole="OrderDetail" ToRole="MovieOrder" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__OrderDeta__Movie__22AA2996">
           <End Type="DealerNetDbModel.Movie" Role="Movie" Multiplicity="1" />
@@ -293,6 +295,7 @@
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="DealerNetDbModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="MovieOrderId" ColumnName="MovieOrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

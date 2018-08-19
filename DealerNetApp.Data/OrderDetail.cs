@@ -17,6 +17,7 @@ namespace DealerNetApp.Data
         public int Id { get; set; }
         public int MovieOrderId { get; set; }
         public int MovieId { get; set; }
+        public int Qty { get; set; }
     
         public virtual Movie Movie { get; set; }
         public virtual MovieOrder MovieOrder { get; set; }
