@@ -41,6 +41,7 @@ namespace DealerNetApp.Web
             builder.RegisterType<CategoryRepository>().As<ICategoryRepository>();
             builder.RegisterType<OrderStatusRepository>().As<IOrderStatusRepository>();
             builder.RegisterType<MovieRepository>().As<IMovieRepository>();
+            builder.RegisterType<OrdersRepository>().As<IOrdersRepository>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();

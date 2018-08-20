@@ -10,6 +10,17 @@ window.common = (function () {
         }
     };
 
+    common.sendToServer = function sendToServer(_token, _verb, _url, _data) {
+        var options = {
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            type: _verb,
+            data: _data
+        };
+        var ajax1 = $.ajax(options);
+        return ajax1;
+    }
+
     function parseQueryString(queryString) {
         var data = {},
             pairs, pair, separatorIndex, escapedKey, escapedValue, key, value;

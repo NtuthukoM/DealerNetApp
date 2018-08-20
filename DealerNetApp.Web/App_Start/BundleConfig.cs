@@ -24,9 +24,14 @@ namespace DealerNetApp.Web
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/sammy-{version}.js",
                 "~/Scripts/app/common.js",
+                "~/Scripts/moment.min.js",
+                "~/Scripts/bootstrap-notify.min.js",
                 "~/Scripts/app/app.datamodel.js",
                 "~/Scripts/app/app.viewmodel.js",
                 "~/Scripts/app/home.viewmodel.js",
+                "~/Scripts/app/movies.viewmodel.js",
+                "~/Scripts/app/orderdetail.viewmodel.js",
+                "~/Scripts/app/orders.viewmodel.js",
                 "~/Scripts/app/_run.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

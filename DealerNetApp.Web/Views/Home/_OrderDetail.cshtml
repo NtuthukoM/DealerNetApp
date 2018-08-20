@@ -1,0 +1,54 @@
+﻿<!-- ko with: orderdetail -->
+
+<section class="view" id="orderdetail">
+    <h2>Order Details</h2>
+    <div class="row">
+        <div class="col-md-4">
+            Order Number: <span data-bind="text:orderNum"></span>
+        </div>
+        <div class="col-md-4">
+            Status: <span data-bind="text:statusDesc"></span>
+        </div>
+        <div class="col-md-4">
+            Order Date: <span data-bind="text:orderDate"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-hove">
+                <thead>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:Items">
+                    <tr>
+                        <td data-bind="text:movie.movieName"></td>
+                        <td data-bind="text:qty()"></td>
+                        <td data-bind="text:movie.price"></td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" data-bind="click:$parent.deleteItem">x</button>
+                            <button class="btn btn-success btn-sm" data-bind="click:$parent.addItem">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <strong>Total:</strong> <span data-bind="text:totalCost"></span>
+            <p>
+                <a href="#orders">back</a> <button class="btn btn-success btn-sm" data-bind="click:addMoreItems">Add more movies</button>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- /ko -->
+

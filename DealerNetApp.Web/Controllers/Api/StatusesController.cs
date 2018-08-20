@@ -8,6 +8,7 @@ using DealerNetApp.Core.Orders;
 
 namespace DealerNetApp.Web.Controllers.Api
 {
+    [Authorize]
     public class StatusesController : ApiController
     {
         private IOrderStatusRepository _orderStatus;

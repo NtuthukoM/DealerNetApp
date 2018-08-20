@@ -8,6 +8,7 @@ using DealerNetApp.Core.Movies;
 
 namespace DealerNetApp.Web.Controllers.Api
 {
+    [Authorize]
     public class MoviesController : ApiController
     {
         IMovieRepository _movieRepo;
@@ -20,6 +21,8 @@ namespace DealerNetApp.Web.Controllers.Api
         // GET: api/Movies
         public IHttpActionResult Get(int? catId = null, string prodName = "")
         {
+            if (string.IsNullOrEmpty(prodName))
+                prodName = "";
             return Ok(_movieRepo.GetMovies(catId, prodName));
         }
     }

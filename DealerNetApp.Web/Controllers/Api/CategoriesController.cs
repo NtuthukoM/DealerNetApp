@@ -9,6 +9,7 @@ using DealerNetApp.Core.Movies;
 
 namespace DealerNetApp.Web.Controllers.Api
 {
+    [Authorize]
     public class CategoriesController : ApiController
     {
         private ICategoryRepository _cats;

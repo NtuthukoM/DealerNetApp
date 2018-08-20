@@ -9,6 +9,7 @@ using DealerNetApp.Core.Orders;
 
 namespace DealerNetApp.Web.Controllers.Api
 {
+    [Authorize]
     public class OrdersController : ApiController
     {
         private IOrdersRepository _ordersRepo;

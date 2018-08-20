@@ -52,7 +52,11 @@ namespace DealerNetApp.Core.Orders
             d.MovieOrderId == orderId && d.MovieId == movieId);
             if(lineItem == null)
             {
-                lineItem = new OrderDetail() { Qty = 0 };
+                lineItem = new OrderDetail() {
+                    Qty = 0,
+                    MovieOrderId = orderId,
+                    MovieId = movieId
+                };
                 db.OrderDetails.Add(lineItem);
             }
             lineItem.Qty += 1;
@@ -63,7 +67,14 @@ namespace DealerNetApp.Core.Orders
                 m.Qty * m.Movie.Price);
             order.TotalCost = total;
             db.SaveChanges();
-            return order;
+
+            return new MovieOrder() {
+                Id = order.Id,
+            OrderDate = order.OrderDate,
+            OrderNum = order.OrderNum,
+            StatusId = order.StatusId,
+            TotalCost = order.TotalCost
+            };
         }
 
         public List<MovieOrder> GetOrders(string orderNum = "")
@@ -79,17 +90,31 @@ namespace DealerNetApp.Core.Orders
             var lineItem = db.OrderDetails.FirstOrDefault(d =>
             d.MovieOrderId == orderId && d.MovieId == movieId);
             if (lineItem != null)
-            {                
-                db.OrderDetails.Remove(lineItem);
+            {
+                lineItem.Qty -= 1;
+                if (lineItem.Qty < 1)
+                    db.OrderDetails.Remove(lineItem);
             }
             db.SaveChanges();
 
-            decimal total = db.OrderDetails.Where(d =>
+            decimal? total = null;
+            try
+            {
+                total = db.OrderDetails.Where(d =>
                 d.MovieOrderId == orderId).Sum(m =>
                 m.Qty * m.Movie.Price);
-            order.TotalCost = total;
+            }
+            catch (Exception) { }
+            order.TotalCost = total.HasValue?total.Value:0;
             db.SaveChanges();
-            return order;
+            return new MovieOrder()
+            {
+                Id = order.Id,
+                OrderDate = order.OrderDate,
+                OrderNum = order.OrderNum,
+                StatusId = order.StatusId,
+                TotalCost = order.TotalCost
+            };
         }
 
         public MovieOrder UpdateOrder(MovieOrder order)

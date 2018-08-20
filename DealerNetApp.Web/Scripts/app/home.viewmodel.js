@@ -5,6 +5,8 @@
 
     Sammy(function () {
         this.get('#home', function () {
+            $(".view").hide();
+            $("#home").show();
             // Make a call to the protected Web API by passing in a Bearer Authorization Header
             $.ajax({
                 method: 'get',

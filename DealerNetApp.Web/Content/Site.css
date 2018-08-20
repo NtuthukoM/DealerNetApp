@@ -34,3 +34,36 @@ textarea {
         padding: 10px 15px;
     }
 }
+
+.navbar, .table th{
+    background-color:#005ba7;
+    color:#fff;
+}
+.navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav > li > a{
+color:#fff;
+}
+
+.navbar-inverse .navbar-brand:hover,.navbar-inverse .navbar-nav > li > a:hover,h2{
+color:#ee7d1f;
+}
+
+.jumbotron {
+     background-color:#fbfdff;
+     color:#fff;
+}
+
+.body-content
+{
+    background-color:#fff;
+}
+
+body{
+    background-color:#fbfdff;
+}
+
+.table{
+    margin-top:15px;
+}
+.row{
+    margin-bottom:10px;
+}

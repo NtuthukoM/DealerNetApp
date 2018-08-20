@@ -2,6 +2,12 @@
     var self = this;
     // Routes
     self.userInfoUrl = "/api/Me";
+    self.moviesUrl = "/api/Movies";
+    self.ordersUrl = "/api/Orders";
+    self.addMovieUrl = "/OrderDetails/AddMovie";
+    self.removeMovieUrl = "/OrderDetails/RemoveMovie";
+    self.categoriesUrl = "/api/Categories";
+    self.orderStatusesUrl = "/api/Statuses";
     self.siteUrl = "/";
 
     // Route operations
@@ -12,6 +18,8 @@
 
     // Data
     self.returnUrl = self.siteUrl;
+    self.orderId = '';
+    self.currentOrderId = '';
 
     // Data access operations
     self.setAccessToken = function (accessToken) {

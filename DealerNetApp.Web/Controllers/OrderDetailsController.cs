@@ -23,13 +23,14 @@ namespace DealerNetApp.Web.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public JsonResult RemoveMovie(int orderId, int movieId)
         {
             var movieOrder = _ordersRepo.RemoveMovie(orderId,movieId);
             return Json(movieOrder, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public JsonResult AddMovie(int movieId,int? orderId = null)
         {
             int oId = 0;
